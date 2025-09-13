@@ -2,41 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Mental Health Wellness Platform Design System
+All colors MUST be HSL for proper theming.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base colors - Calming wellness palette */
+    --background: 251 100% 99%;
+    --foreground: 224 15% 25%;
 
+    /* Card and surface colors */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 224 15% 25%;
+    --card-glass: 251 100% 99% / 0.8;
 
+    /* Interactive elements */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 224 15% 25%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary wellness colors - Calming purple gradient */
+    --primary: 259 94% 51%;
+    --primary-light: 266 100% 70%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary colors - Soft blue accents */
+    --secondary: 213 100% 96%;
+    --secondary-foreground: 259 94% 51%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted colors for subtle elements */
+    --muted: 213 27% 97%;
+    --muted-foreground: 215 13% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent colors - Healing green */
+    --accent: 142 76% 73%;
+    --accent-light: 142 76% 85%;
+    --accent-foreground: 224 15% 25%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* State colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --success: 142 76% 56%;
+    --success-foreground: 0 0% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Border and input styles */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 259 94% 51%;
 
-    --radius: 0.5rem;
+    /* Wellness gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(259 94% 51%), hsl(266 100% 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(213 100% 96%), hsl(220 13% 95%));
+    --gradient-healing: linear-gradient(135deg, hsl(142 76% 73%), hsl(173 80% 67%));
+    --gradient-calm: linear-gradient(180deg, hsl(251 100% 99%), hsl(213 100% 96%));
+
+    /* Shadows for depth and wellness feel */
+    --shadow-soft: 0 4px 20px -2px hsl(259 94% 51% / 0.1);
+    --shadow-medium: 0 8px 25px -5px hsl(259 94% 51% / 0.15);
+    --shadow-glow: 0 0 40px hsl(266 100% 70% / 0.3);
+
+    /* Border radius for wellness feel */
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +129,34 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background: var(--gradient-calm);
+    min-height: 100vh;
+  }
+
+  /* Wellness-specific utility classes */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-healing {
+    background: var(--gradient-healing);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glass-effect {
+    background: var(--card-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--border));
   }
 }
